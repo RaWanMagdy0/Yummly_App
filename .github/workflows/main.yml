@@ -1,12 +1,11 @@
-# المسار: .github/workflows/flutter-ci.yml
 
 name: Flutter CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
