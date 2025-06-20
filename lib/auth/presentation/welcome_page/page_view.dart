@@ -26,7 +26,6 @@ class _PageViewScreenState extends State<PageViewScreen> {
       if (currentPage >= 2) {
         Future.delayed(const Duration(milliseconds: 500), () {
           Navigator.pushNamed(context, PageRouteName.signUpInit);
-
         });
       }
     });
@@ -38,14 +37,24 @@ class _PageViewScreenState extends State<PageViewScreen> {
     super.dispose();
   }
 
-  Widget _buildPage(String imagePath, String title, String subtitle, {double right = 0}) {
+  Widget _buildPage(
+    String imagePath,
+    String title,
+    String subtitle, {
+    double right = 0,
+  }) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
           child: Stack(
             children: [
-              Image.asset(imagePath, fit: BoxFit.cover),
+              Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
               Positioned(
                 bottom: 100.h,
                 left: 15,
@@ -91,9 +100,23 @@ class _PageViewScreenState extends State<PageViewScreen> {
             controller: pageController,
             scrollDirection: Axis.horizontal,
             children: [
-              _buildPage(AppImages.product, "Share Your \n Recipes", "Let your creativity inspire others!", right: 120),
-              _buildPage(AppImages.product2, "Learn To \n Cook", "Create delicious dishes with ease", right: 120),
-              _buildPage(AppImages.product3, "Become a Master \n Chef", "Discover quick and varied recipes for preparing remedies!",),
+              _buildPage(
+                AppImages.product,
+                "Share Your \n Recipes",
+                "Let your creativity inspire others!",
+                right: 120,
+              ),
+              _buildPage(
+                AppImages.product2,
+                "Learn To \n Cook",
+                "Create delicious dishes with ease",
+                right: 120,
+              ),
+              _buildPage(
+                AppImages.product3,
+                "Become a Master \n Chef",
+                "Discover quick and varied recipes for preparing remedies!",
+              ),
             ],
           ),
           // Linear Indicator

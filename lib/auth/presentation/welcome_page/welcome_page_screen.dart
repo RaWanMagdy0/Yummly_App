@@ -12,37 +12,47 @@ class WelcomePageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox(
-        height: double.infinity,
         width: double.infinity,
+        height: double.infinity,
         child: Stack(
           children: [
-            Image.asset(AppImages.welcomePage, fit: BoxFit.fill),
+            Image.asset(
+              AppImages.welcomePage,
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
             Positioned(
-              bottom: 90.h,
+              bottom: 70.h < 40 ? 40 : 70.h,
               left: 0,
               right: 0,
               child: Center(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Meals On \n Demand",style: TextStyle(
-                      fontSize: 30.sp,
-                      color: AppColors.kWhite,
-                      fontWeight: FontWeight.w500,
-                    ),),
-                    160.verticalSpace,
+                    Text(
+                      "Meals On\nDemand",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30.sp < 16 ? 16 : 30.sp,
+                        color: AppColors.kWhite,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    (160.h < 60 ? 60 : 160.h).verticalSpace,
                     CustomButton(
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.pushNamed(context, PageRouteName.pageView);
                       },
-                      width: 200.w,
-                      height: 50.h,
+                      width: 200.w < 120 ? 120 : 200.w,
+                      height: 50.h < 36 ? 36 : 50.h,
                       backgroundColor: Colors.white,
-                      padding: EdgeInsets.all(12.r),
+                      padding: EdgeInsets.all(12.r < 6 ? 6 : 12.r),
                       disabledBackgroundColor: Colors.white,
                       child: Text(
                         "Lets Start",
                         style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 18.sp < 12 ? 12 : 18.sp,
                           color: AppColors.kBlack,
                           fontWeight: FontWeight.w500,
                         ),

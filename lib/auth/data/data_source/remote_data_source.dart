@@ -12,5 +12,4 @@ abstract class AuthRemoteDataSource {
   Future<Result<String?>> resetPassword(ResetPasswordRequestModel resetPassword);
   Future<User?> signInWithGoogle();
   Future<void> signOut();
-
 }
