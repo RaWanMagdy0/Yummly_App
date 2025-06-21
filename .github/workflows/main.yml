@@ -26,8 +26,9 @@ jobs:
       - name: Analyze Dart code
         run: flutter analyze
 
-      - name: Run unit tests
-        run: flutter test
+      - name: Run unit tests (if test dir exists)
+        run: |
+          if [ -d test ]; then flutter test; else echo "No test dir, skipping tests."; fi
 
       - name: Build APK (debug mode)
         run: flutter build apk --debug
