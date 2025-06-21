@@ -38,7 +38,7 @@ class AppDialogs {
         content: Text(
           textAlign: TextAlign.center,
           errorMassage,
-         // style: AppFonts.font18BlackWeight500,
+          // style: AppFonts.font18BlackWeight500,
         ),
       ),
     );
@@ -100,22 +100,21 @@ class AppDialogs {
             width: 300.w,
             padding: EdgeInsets.all(16.r),
             decoration: BoxDecoration(
-              color: AppColors.kBlack.withOpacity(0.9),
+              color: AppColors.kBlack.withValues(alpha: 0.9),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 5.verticalSpace,
-
                 Text(
                   'LOGOUT',
-             //     style: AppFonts.font18WhiteWeight400.copyWith(fontWeight: FontWeight.w600),
+                  //     style: AppFonts.font18WhiteWeight400.copyWith(fontWeight: FontWeight.w600),
                 ),
                 10.verticalSpace,
                 Text(
                   'Confirm Logout !',
-               //   style: AppFonts.font15WhiteWeight500.copyWith(fontWeight: FontWeight.w600),
+                  //   style: AppFonts.font15WhiteWeight500.copyWith(fontWeight: FontWeight.w600),
                 ),
                 20.verticalSpace,
                 Row(
@@ -134,7 +133,6 @@ class AppDialogs {
                       ),
                     ),
                     10.horizontalSpace,
-
                     Expanded(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -148,15 +146,13 @@ class AppDialogs {
                         ),
                         onPressed: () {
                           Navigator.pop(context);
-
                         },
                         child: Text(
                           'Logout',
-                         // style: AppFonts.font15WhiteWeight500.copyWith(fontWeight: FontWeight.w400),
+                          // style: AppFonts.font15WhiteWeight500.copyWith(fontWeight: FontWeight.w400),
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ],

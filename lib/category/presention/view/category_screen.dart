@@ -23,7 +23,7 @@ class CategoryScreen extends StatelessWidget {
                   height: 50.h,
                   width: 50.w,
                   decoration: BoxDecoration(
-                    color: AppColors.kBaseColor.withOpacity(0.6),
+                    color: AppColors.kBaseColor.withValues(alpha: 0.6),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Icon(
@@ -49,10 +49,11 @@ class CategoryScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: [
-                Text("Categories",style: TextStyle(
-                  fontSize: 40.sp,
-                  fontWeight: FontWeight.w400
-                ),),
+                Text(
+                  "Categories",
+                  style:
+                      TextStyle(fontSize: 40.sp, fontWeight: FontWeight.w400),
+                ),
               ],
             ),
           ),

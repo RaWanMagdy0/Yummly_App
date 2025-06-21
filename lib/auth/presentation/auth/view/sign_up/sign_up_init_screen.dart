@@ -47,8 +47,8 @@ class _SignUpInitScreenState extends State<SignUpInitScreen> {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   fixedSize: Size(300.w, 50.h),
-                  backgroundColor: AppColors.kBaseColor.withOpacity(0.9),
-                  overlayColor: Colors.white.withOpacity(0.2),
+                  backgroundColor: AppColors.kBaseColor.withValues(alpha: 0.9),
+                  overlayColor: Colors.white.withValues(alpha: 0.2),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.r),
                     side: BorderSide(color: Colors.transparent, width: 1.w),

@@ -64,19 +64,21 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                       ),
                       20.verticalSpace,
                       CustomTextFormField(
-                        backgroundColor: AppColors.kBaseColor.withOpacity(0.2),
+                        backgroundColor:
+                            AppColors.kBaseColor.withValues(alpha: 0.2),
                         hintText: "New Password",
                         //   labelText: "local.passwordLabelText",
                         controller:
                             _resetPasswordViewModel.newPasswordController,
                         keyBordType: TextInputType.text,
                         isPassword: true,
-                        validator:
-                            (value) => Validators.validatePassword(value),
+                        validator: (value) =>
+                            Validators.validatePassword(value),
                       ),
                       20.verticalSpace,
                       CustomTextFormField(
-                        backgroundColor: AppColors.kBaseColor.withOpacity(0.2),
+                        backgroundColor:
+                            AppColors.kBaseColor.withValues(alpha: 0.2),
 
                         hintText: "Confirm Password",
                         //  labelText: "local.confirmPasswordHintText",
@@ -84,14 +86,12 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                             _resetPasswordViewModel.confirmPasswordController,
                         keyBordType: TextInputType.text,
                         isPassword: true,
-                        validator:
-                            (value) => Validators.validatePasswordConfirmation(
-                              password:
-                                  _resetPasswordViewModel
-                                      .newPasswordController
-                                      .text,
-                              confirmPassword: value,
-                            ),
+                        validator: (value) =>
+                            Validators.validatePasswordConfirmation(
+                          password: _resetPasswordViewModel
+                              .newPasswordController.text,
+                          confirmPassword: value,
+                        ),
                       ),
                       170.verticalSpace,
                       Row(
@@ -103,9 +103,8 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
                                 horizontal: 70.w,
                                 vertical: 15.h,
                               ),
-                              backgroundColor: AppColors.kBaseColor.withOpacity(
-                                0.6,
-                              ),
+                              backgroundColor:
+                                  AppColors.kBaseColor.withValues(alpha: 0.6),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
@@ -160,10 +159,9 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder:
-            (context) => Center(
-              child: CircularProgressIndicator(color: AppColors.kBaseColor),
-            ),
+        builder: (context) => Center(
+          child: CircularProgressIndicator(color: AppColors.kBaseColor),
+        ),
       );
     }
   }

@@ -36,27 +36,30 @@ class _SignInScreenState extends State<SignInScreen> {
         switch (state) {
           case SignInLoading():
             {
-                 AppDialogs.showLoading(context: context);
+              AppDialogs.showLoading(context: context);
               //CircularProgressIndicator(color: AppColors.kBaseColor);
             }
           case SignInFail():
             {
-             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMassage ?? "Failed to sign in"), backgroundColor: AppColors.kRed,),);
-               AppDialogs.showHideDialog(context);
-               AppDialogs.showErrorDialog(context: context,errorMassage: state.errorMassage ?? "",);
+              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMassage ?? "Failed to sign in"), backgroundColor: AppColors.kRed,),);
+              AppDialogs.showHideDialog(context);
+              AppDialogs.showErrorDialog(
+                context: context,
+                errorMassage: state.errorMassage ?? "",
+              );
             }
           case SignInSuccess():
             {
-
-             // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message ?? "success", style: TextStyle(color: AppColors.kWhite),), backgroundColor: AppColors.kBaseColor,),);
-              AppDialogs.showSuccessDialog(context: context, message: "Login Successfully",
+              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message ?? "success", style: TextStyle(color: AppColors.kWhite),), backgroundColor: AppColors.kBaseColor,),);
+              AppDialogs.showSuccessDialog(
+                context: context,
+                message: "Login Successfully",
                 whenAnimationFinished: () {
                   Navigator.pop(context);
 
                   Navigator.pushNamed(context, PageRouteName.categoryScreen);
-
-                },);
-
+                },
+              );
             }
           default:
             {}
@@ -87,7 +90,8 @@ class _SignInScreenState extends State<SignInScreen> {
                               height: 50.h,
                               width: 50.w,
                               decoration: BoxDecoration(
-                                color: AppColors.kBaseColor.withOpacity(0.6),
+                                color:
+                                    AppColors.kBaseColor.withValues(alpha: 0.6),
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Icon(
@@ -129,9 +133,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         50.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Email",
                           keyBordType: TextInputType.text,
@@ -140,14 +143,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         20.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Password",
                           keyBordType: TextInputType.text,
-                          validator:
-                              (value) => Validators.validatePassword(value),
+                          validator: (value) =>
+                              Validators.validatePassword(value),
                           controller: viewModel.passwordNameController,
                         ),
                         10.verticalSpace,
@@ -155,8 +157,9 @@ class _SignInScreenState extends State<SignInScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             InkWell(
-                              onTap: (){
-                                Navigator.pushNamed(context, PageRouteName.forgotPassword);
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, PageRouteName.forgotPassword);
                               },
                               child: Text(
                                 "Forget Password?",
@@ -174,7 +177,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           onPressed: () {
                             viewModel.validateSignIn();
                           },
-                          color: AppColors.kBaseColor.withOpacity(0.6),
+                          color: AppColors.kBaseColor.withValues(alpha: 0.6),
                           child: Text(
                             "Login",
                             style: TextStyle(

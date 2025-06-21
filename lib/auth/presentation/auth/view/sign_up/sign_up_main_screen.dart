@@ -49,7 +49,7 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
               Positioned(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                   // bottom: 20,
+                    // bottom: 20,
                     top: 60,
                     right: 24,
                     left: 24,
@@ -65,7 +65,8 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
                               height: 50.h,
                               width: 50.w,
                               decoration: BoxDecoration(
-                                color: AppColors.kBaseColor.withOpacity(0.6),
+                                color:
+                                    AppColors.kBaseColor.withValues(alpha: 0.6),
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               child: Icon(
@@ -107,9 +108,8 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
                         ),
                         50.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Full Name",
                           keyBordType: TextInputType.text,
@@ -118,9 +118,8 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
                         ),
                         20.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Email",
                           keyBordType: TextInputType.text,
@@ -129,28 +128,26 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
                         ),
                         20.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Phone Number",
                           keyBordType: TextInputType.text,
                           controller: viewModel.phoneNumberController,
-                          validator:
-                              (value) => Validators.validatePhoneNumber(value),
+                          validator: (value) =>
+                              Validators.validatePhoneNumber(value),
                         ),
                         20.verticalSpace,
                         CustomTextFormField(
-                          backgroundColor: AppColors.kBaseColor.withOpacity(
-                            0.2,
-                          ),
+                          backgroundColor:
+                              AppColors.kBaseColor.withValues(alpha: 0.2),
                           borderColor: Colors.transparent,
                           hintText: "Password",
                           keyBordType: TextInputType.text,
                           isPassword: true,
                           controller: viewModel.passwordNameController,
-                          validator:
-                              (value) => Validators.validatePassword(value),
+                          validator: (value) =>
+                              Validators.validatePassword(value),
                         ),
                         50.verticalSpace,
                         Text(
@@ -163,7 +160,7 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
                         10.verticalSpace,
                         CustomButton(
                           onPressed: () => viewModel.validateSignUp(),
-                          color: AppColors.kBaseColor.withOpacity(0.6),
+                          color: AppColors.kBaseColor.withValues(alpha: 0.6),
                           child: Text(
                             "Sign Up",
                             style: TextStyle(
@@ -187,10 +184,22 @@ class _SignUpMainScreenState extends State<SignUpMainScreen> {
 
   void _handelStateChange(AuthState state) {
     if (state is SignUpSuccess) {
-      ScaffoldMessenger.of(context,).showSnackBar(SnackBar(content: Text(state.message??"success",style: TextStyle(color: AppColors.kWhite),),backgroundColor: Colors.green,));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(
+        content: Text(
+          state.message ?? "success",
+          style: TextStyle(color: AppColors.kWhite),
+        ),
+        backgroundColor: Colors.green,
+      ));
     } else if (state is SignUpFail) {
-      ScaffoldMessenger.of(context,).showSnackBar(SnackBar(content: Text(state.errorMassage??""),backgroundColor: AppColors.kRed,));
-    } else if (state is SignUpLoading) {
-    }
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(
+        content: Text(state.errorMassage ?? ""),
+        backgroundColor: AppColors.kRed,
+      ));
+    } else if (state is SignUpLoading) {}
   }
 }
