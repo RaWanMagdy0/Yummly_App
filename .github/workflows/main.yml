@@ -15,18 +15,10 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Setup Flutter (stable default)
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
-
-      - name: Switch to Flutter beta channel + upgrade
-        run: |
-          flutter channel beta
-          flutter upgrade
-
-      - name: Enable Dart 3.7 SDK support
-        run: flutter --version
+          flutter-version: '3.22.0'  # إصدار فيه Dart 3.7 stable ومش محتاج channel switch
 
       - name: Install dependencies
         run: flutter pub get
