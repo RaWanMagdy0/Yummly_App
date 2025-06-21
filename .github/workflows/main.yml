@@ -20,10 +20,13 @@ jobs:
         with:
           flutter-version: 'stable'
 
-      - name: Switch to Flutter beta and upgrade
+      - name: Switch to Flutter beta channel + upgrade
         run: |
           flutter channel beta
           flutter upgrade
+
+      - name: Enable Dart 3.7 SDK support
+        run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
