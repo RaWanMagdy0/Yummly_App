@@ -35,14 +35,14 @@ class _CustomAuthRowState extends State<CustomAuthRow> {
             style: ElevatedButton.styleFrom(
               elevation: 0,
               minimumSize: Size(140.w, 50.h),
-              backgroundColor: AppColors.kBaseColor.withOpacity(0.2),
-              overlayColor: Colors.white.withOpacity(0.2),
+              backgroundColor: AppColors.kBaseColor.withValues(alpha: 0.2),
+              overlayColor: Colors.white.withValues(alpha: 0.2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.r),
                 side: BorderSide(color: Colors.transparent, width: 1.w),
               ),
             ),
-            onPressed: ()=>viewModel.signInWithGoogle(),
+            onPressed: () => viewModel.signInWithGoogle(),
             child: Image.asset(AppImages.google, scale: 15),
           ),
           10.horizontalSpace,
@@ -50,8 +50,8 @@ class _CustomAuthRowState extends State<CustomAuthRow> {
             style: ElevatedButton.styleFrom(
               elevation: 0,
               minimumSize: Size(140.w, 50.h),
-              backgroundColor: AppColors.kBaseColor.withOpacity(0.22),
-              overlayColor: Colors.white.withOpacity(0.2),
+              backgroundColor: AppColors.kBaseColor.withValues(alpha: 0.2),
+              overlayColor: Colors.white.withValues(alpha: 0.2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.r),
                 side: BorderSide(color: Colors.transparent, width: 1.w),

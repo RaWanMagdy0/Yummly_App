@@ -77,13 +77,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       //   autovalidateMode: AutovalidateMode.onUserInteraction,
                       key: viewModel.formKey,
                       child: CustomTextFormField(
-                        backgroundColor: AppColors.kBaseColor.withOpacity(
-                          0.2,
-                        ),
+                        backgroundColor:
+                            AppColors.kBaseColor.withValues(alpha: 0.2),
                         hintText: "Email",
                         //labelText: "local.emailLabelText",
-                        validator:
-                            (value) => Validators.validateEmail(value),
+                        validator: (value) => Validators.validateEmail(value),
                         keyBordType: TextInputType.text,
                         controller: viewModel.emailController,
                       ),
@@ -98,8 +96,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                               horizontal: 80.w,
                               vertical: 15.h,
                             ),
-                            backgroundColor: AppColors.kBaseColor
-                                .withOpacity(0.6),
+                            backgroundColor:
+                                AppColors.kBaseColor.withValues(alpha: 0.6),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r),
                             ),
@@ -132,10 +130,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder:
-            (context) => Center(
-              child: CircularProgressIndicator(color: AppColors.kBaseColor),
-            ),
+        builder: (context) => Center(
+          child: CircularProgressIndicator(color: AppColors.kBaseColor),
+        ),
       );
     } else if (state is ForgotPasswordSuccessState) {
       Navigator.pop(context); // Dismiss loading
@@ -145,7 +142,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           backgroundColor: Colors.green,
         ),
       );
-         Navigator.pushNamed(context, PageRouteName.passwordVerification);
+      Navigator.pushNamed(context, PageRouteName.passwordVerification);
     } else if (state is ForgotPasswordErrorState) {
       Navigator.pop(context); // Dismiss loading
       ScaffoldMessenger.of(context).showSnackBar(

@@ -112,7 +112,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
         return currentUser;
       }
       return null;
-    } catch (e, stackTrace) {
+    } catch (e) {
       if (kDebugMode) {
         print(" Error during Google Sign-In: $e");
       }

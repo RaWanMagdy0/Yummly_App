@@ -51,7 +51,7 @@ class CustomTextFormField extends StatefulWidget {
 
   const CustomTextFormField({
     super.key,
-     this.hintText,
+    this.hintText,
     this.labelText,
     this.textInputAction,
     this.autovalidateMode,
@@ -173,7 +173,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         }),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintText: widget.hintText,
-        hintStyle: widget.hintStyle ,
+        hintStyle: widget.hintStyle,
         fillColor: (widget.enabled != null && widget.enabled == false)
             ? widget.disabledBackgroundColor ?? Colors.transparent
             : widget.backgroundColor ?? AppColors.kWhite,
@@ -197,7 +197,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius ?? 15.r),
               borderSide: BorderSide(
-                color: widget.borderColor ?? AppColors.kBaseColor.withOpacity(0.2),
+                color: widget.borderColor ??
+                    AppColors.kBaseColor.withValues(alpha: 0.2),
                 width: widget.borderWidth ?? 1,
               ),
             ),
@@ -206,7 +207,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               borderRadius:
                   BorderRadius.circular(widget.enabledBorderRadius ?? 4.r),
               borderSide: BorderSide(
-                color: widget.enabledBorderColor ??  Colors.transparent,
+                color: widget.enabledBorderColor ?? Colors.transparent,
                 width: widget.enabledBorderWidth ?? 1,
               ),
             ),
@@ -215,7 +216,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               borderRadius:
                   BorderRadius.circular(widget.focusedBorderRadius ?? 4.r),
               borderSide: BorderSide(
-                color: widget.focusedBorderColor ?? AppColors.kBaseColor.withOpacity(0.8),
+                color: widget.focusedBorderColor ??
+                    AppColors.kBaseColor.withValues(alpha: 0.8),
                 width: widget.focusedBorderWidth ?? 1,
               ),
             ),

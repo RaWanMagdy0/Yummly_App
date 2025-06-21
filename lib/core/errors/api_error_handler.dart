@@ -30,9 +30,6 @@ class ApiErrorHandler {
           return _handleError(error.response?.statusCode, error.response?.data);
         case DioExceptionType.cancel:
           return ApiErrorModel(message: "Request to the server was cancelled");
-
-        default:
-          return ApiErrorModel(message: error.message);
       }
     } else if (error is IOException) {
       return ApiErrorModel(message: "No internet connection");

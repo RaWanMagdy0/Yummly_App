@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummly_app/core/styles/colors/app_colors.dart';
@@ -9,9 +10,8 @@ import 'pin_code_file.dart';
 
 class EmailVerificationWidget extends StatelessWidget {
   final AuthCubit viewModel;
-   EmailVerificationWidget({super.key, required this.viewModel});
+  EmailVerificationWidget({super.key, required this.viewModel});
   final appProvider = getIt.get<AppProvider>();
-  String? userEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +57,17 @@ class EmailVerificationWidget extends StatelessWidget {
                 PinCodeFile(
                   onCodeCompleted: (verficationCode) {
                     if (verficationCode.isNotEmpty) {
-                      print("Verification Code Entered: $verficationCode");
+                      if (kDebugMode) {
+                        print("Verification Code Entered: $verficationCode");
+                      }
                       viewModel.verifyResetCode(
                         verficationCode: verficationCode,
                         email: appProvider.email,
                       );
                     } else {
-                      print("Error: Verification Code is Empty");
+                      if (kDebugMode) {
+                        print("Error: Verification Code is Empty");
+                      }
                     }
                   },
                 ),
@@ -81,38 +85,33 @@ class EmailVerificationWidget extends StatelessWidget {
                       valueListenable: viewModel.isResendButtonEnabled,
                       builder: (context, isEnabled, child) {
                         return InkWell(
-                          onTap:
-                              isEnabled
-                                  ? () {
-                                    viewModel.resendResetCode();
-                                  }
-                                  : null,
+                          onTap: isEnabled
+                              ? () {
+                                  viewModel.resendResetCode();
+                                }
+                              : null,
                           child: ValueListenableBuilder<String?>(
                             valueListenable: viewModel.resendButtonText,
                             builder: (context, value, child) {
                               return Text(
-
                                 value ?? " Resend",
-                                style:
-                                    isEnabled
-                                        ? TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColors.kBaseColor,
-                                        )
-                                        : TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColors.kBaseColor,
-                                        ),
+                                style: isEnabled
+                                    ? TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.kBaseColor,
+                                      )
+                                    : TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.kBaseColor,
+                                      ),
                               );
                             },
                           ),
                         );
                       },
                     ),
-
-
                   ],
                 ),
                 50.verticalSpace,
@@ -125,8 +124,8 @@ class EmailVerificationWidget extends StatelessWidget {
                           horizontal: 90.w,
                           vertical: 15.h,
                         ),
-                        backgroundColor: AppColors.kBaseColor
-                            .withOpacity(0.6),
+                        backgroundColor:
+                            AppColors.kBaseColor.withValues(alpha: 0.6),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r),
                         ),
@@ -143,7 +142,6 @@ class EmailVerificationWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-
               ],
             ),
           ),

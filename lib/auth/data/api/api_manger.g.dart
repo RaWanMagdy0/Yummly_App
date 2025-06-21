@@ -9,15 +9,9 @@ part of 'api_manger.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _AuthApiManager implements AuthApiManager {
-  _AuthApiManager(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://r-m.runasp.net/';
-  }
+  _AuthApiManager(this._dio);
 
   final Dio _dio;
-
-  String? baseUrl;
-
-  final ParseErrorLogger? errorLogger;
 
   @override
   Future<SignupResponseModel?> signUp(
@@ -36,17 +30,17 @@ class _AuthApiManager implements AuthApiManager {
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(
+              baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl, 'https://r-m.runasp.net/')),
     );
     final _result = await _dio.fetch<Map<String, dynamic>?>(_options);
     late SignupResponseModel? _value;
     try {
-      _value =
-          _result.data == null
-              ? null
-              : SignupResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      _value = _result.data == null
+          ? null
+          : SignupResponseModel.fromJson(_result.data!);
+    } on Object {
       rethrow;
     }
     return _value;
@@ -69,14 +63,15 @@ class _AuthApiManager implements AuthApiManager {
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(
+              baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl, 'https://r-m.runasp.net/')),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
     late SignInResponseModel _value;
     try {
       _value = SignInResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+    } on Object {
       rethrow;
     }
     return _value;
@@ -97,14 +92,15 @@ class _AuthApiManager implements AuthApiManager {
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(
+              baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl, 'https://r-m.runasp.net/')),
     );
     final _result = await _dio.fetch<String>(_options);
     late String? _value;
     try {
       _value = _result.data;
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+    } on Object {
       rethrow;
     }
     return _value;
@@ -125,14 +121,15 @@ class _AuthApiManager implements AuthApiManager {
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(
+              baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl, 'https://r-m.runasp.net/')),
     );
     final _result = await _dio.fetch<String>(_options);
     late String? _value;
     try {
       _value = _result.data;
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+    } on Object {
       rethrow;
     }
     return _value;
@@ -153,14 +150,15 @@ class _AuthApiManager implements AuthApiManager {
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(
+              baseUrl: _combineBaseUrls(
+                  _dio.options.baseUrl, 'https://r-m.runasp.net/')),
     );
     final _result = await _dio.fetch<String>(_options);
     late String? _value;
     try {
       _value = _result.data;
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+    } on Object {
       rethrow;
     }
     return _value;

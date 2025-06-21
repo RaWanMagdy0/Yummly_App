@@ -25,7 +25,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
       });
       if (currentPage >= 2) {
         Future.delayed(const Duration(milliseconds: 500), () {
-          Navigator.pushNamed(context, PageRouteName.signUpInit);
+          if (mounted) {
+            Navigator.pushNamed(context, PageRouteName.signUpInit);
+          }
         });
       }
     });
@@ -139,7 +141,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
                         width: constraints.maxWidth,
                         height: 5.h,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.white.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(15.r),
                         ),
                       ),
