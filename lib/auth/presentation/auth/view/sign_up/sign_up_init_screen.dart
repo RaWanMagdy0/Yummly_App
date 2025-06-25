@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yummly_app/core/styles/fonts/app_fonts.dart';
+import 'package:yummly_app/core/utils/app_dialogs.dart';
 import '../../../../../core/routes/page_route_name.dart';
 import '../../../../../core/styles/colors/app_colors.dart';
-import '../../../../../core/styles/images/app_images.dart';
+import '../../../../../core/styles/assets/app_images.dart';
 import '../../view_model/auth_states.dart';
 import '../../view_model/auth_view_model.dart';
 import '../../widget/custom_auth_row.dart';
@@ -30,7 +32,14 @@ class _SignUpInitScreenState extends State<SignUpInitScreen> {
       bloc: viewModel,
       listener: (context, state) {
         if (state is SignInWithGoogleSuccess) {
-          Navigator.pushReplacementNamed(context, PageRouteName.categoryScreen);
+          AppDialogs.showSuccessDialog(
+            context: context,
+            message: "Login Successfully With Google Account",
+            whenAnimationFinished: () {
+              Navigator.pushReplacementNamed(
+                  context, PageRouteName.categoryScreen);
+            },
+          );
         } else if (state is SignInWithGoogleFail) {
           ScaffoldMessenger.of(
             context,
@@ -75,26 +84,13 @@ class _SignUpInitScreenState extends State<SignUpInitScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Have an account?",
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.kBlack,
-                    ),
-                  ),
+                  Text("Have an account?",
+                      style: AppFonts.font15BlackWeight400),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, PageRouteName.signIn);
                     },
-                    child: Text(
-                      " Login",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.kBlack,
-                      ),
-                    ),
+                    child: Text(" Login", style: AppFonts.font15BlackWeight700),
                   ),
                 ],
               ),

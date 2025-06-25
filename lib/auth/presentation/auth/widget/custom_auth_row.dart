@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/routes/page_route_name.dart';
 import '../../../../core/styles/colors/app_colors.dart';
-import '../../../../core/styles/images/app_images.dart';
+import '../../../../core/styles/assets/app_images.dart';
 import '../view_model/auth_states.dart';
 import '../view_model/auth_view_model.dart';
 

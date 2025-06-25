@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/const/custom/custom_botton.dart';
 import '../../../../core/routes/page_route_name.dart';
 import '../../../../core/styles/colors/app_colors.dart';
-import '../../../../core/styles/images/app_images.dart';
+import '../../../core/styles/assets/app_images.dart';
 
 class WelcomePageScreen extends StatelessWidget {
   const WelcomePageScreen({super.key});

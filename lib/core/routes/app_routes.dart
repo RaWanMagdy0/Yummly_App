@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yummly_app/add_recipe/presentaion/add_recipe.dart';
 import 'package:yummly_app/core/routes/page_route_name.dart';
 import '../../auth/presentation/auth/view/forget_password/email_verification.dart';
 import '../../auth/presentation/auth/view/forget_password/fogot_password.dart';
@@ -18,57 +19,53 @@ class AppRoutes {
     switch (setting.name) {
       case PageRouteName.welcomePage:
         return _handleMaterialPageRoute(widget: const WelcomePageScreen());
+      case PageRouteName.addRecipeScreen:
+        return _handleMaterialPageRoute(widget: const AddRecipe());
       case PageRouteName.pageView:
         return _handleMaterialPageRoute(widget: const PageViewScreen());
       case PageRouteName.signUpInit:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
+          builder: (context) => BlocProvider(
             create: (context) => getIt<AuthCubit>(),
             child: SignUpInitScreen(),
           ),
         );
-        case PageRouteName.categoryScreen:
+      case PageRouteName.categoryScreen:
         return _handleMaterialPageRoute(widget: const CategoryScreen());
       case PageRouteName.signUpMain:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => getIt<AuthCubit>(),
-                child: SignUpMainScreen(),
-              ),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: SignUpMainScreen(),
+          ),
         );
       case PageRouteName.signIn:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => getIt<AuthCubit>(),
-                child: SignInScreen(),
-              ),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: SignInScreen(),
+          ),
         );
       case PageRouteName.forgotPassword:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => getIt<AuthCubit>(),
-                child: ForgetPassword(),
-              ),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: ForgetPassword(),
+          ),
         );
       case PageRouteName.passwordVerification:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => getIt<AuthCubit>(),
-                child: EmailVerification(),
-              ),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: EmailVerification(),
+          ),
         );
       case PageRouteName.resetPassword:
         return MaterialPageRoute(
-          builder:
-              (context) => BlocProvider(
-                create: (context) => getIt<AuthCubit>(),
-                child: ResetPasswordViewBody(),
-              ),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<AuthCubit>(),
+            child: ResetPasswordViewBody(),
+          ),
         );
 
       default:

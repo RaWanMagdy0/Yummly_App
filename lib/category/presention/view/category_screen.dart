@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummly_app/category/presention/widgets/custom_card.dart';
-import 'package:yummly_app/core/styles/images/app_images.dart';
 import 'package:yummly_app/core/utils/custom_scaffold.dart';
+import 'package:yummly_app/core/styles/assets/app_images.dart';
+import 'package:yummly_app/core/styles/fonts/app_fonts.dart';
 import '../../../core/styles/colors/app_colors.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -11,7 +12,6 @@ class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      backgroundImage: AppImages.registerEmpty,
       child: Column(
         children: [
           Padding(
@@ -51,8 +51,7 @@ class CategoryScreen extends StatelessWidget {
               children: [
                 Text(
                   "Categories",
-                  style:
-                      TextStyle(fontSize: 40.sp, fontWeight: FontWeight.w400),
+                  style: AppFonts.font40BlackWeight400,
                 ),
               ],
             ),

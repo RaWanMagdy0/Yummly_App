@@ -1,25 +1,13 @@
-class AppImages{
-  static const String welcomePage="assets/images/welcomePage.jpg";
-  static const String product="assets/images/product.jpg";
-  static const String product2="assets/images/product2.jpg";
-  static const String product3="assets/images/product3.jpg";
-  static const String register="assets/images/register.jpg";
-  static const String apple="assets/images/apple.png";
-  static const String google="assets/images/google.png";
-  static const String registerEmpty="assets/images/registerEmpty.jpg";
-  static const String categoryImage="assets/images/categoryImage.png";
-  static const floweryAnimation = 'assets/animations/Flowery.json';
-  static const successAnimation = 'assets/animations/success_animation.json';
-  static const errorAnimation = 'assets/animations/error_animation.json';
-  static const loadingAnimation = 'assets/animations/loading_animation.json';
-  static const pinkLoadingAnimation = "assets/animations/pink_loading.json";
-  static const pinkErrorAnimation =
-      "assets/animations/flowery_error_animation.json";
-  static const pinkDoneAnimation =
-      "assets/animations/flowery_success_animation.json";
-  static const geminiAnimi = "assets/animations/gemini_animi.json";
-  static const fitLoad = "assets/animations/fit_load.json";
-  static const loadingMess = "assets/animations/loading_mess.json";
+class AppImages {
+  static const String welcomePage = "assets/images/welcomePage.jpg";
+  static const String product = "assets/images/product.jpg";
+  static const String product2 = "assets/images/product2.jpg";
+  static const String product3 = "assets/images/product3.jpg";
+  static const String register = "assets/images/register.jpg";
+  static const String apple = "assets/images/apple.png";
+  static const String google = "assets/images/google.png";
+  static const String registerEmpty = "assets/images/registerEmpty.jpg";
+  static const String categoryImage = "assets/images/categoryImage.png";
   static const authBackground = "assets/images/auth_background.png";
   static const logoIcon = "assets/images/logoIcon.png";
   static const splash2 = "assets/images/splash2.png";
@@ -51,8 +39,5 @@ class AppImages{
   static const fitnessIcon = "assets/icon/fitnessIcon.png";
   static const gymIcon = "assets/icon/gymIcon.png";
   static const trainerIcon = "assets/icon/trainerIcon.png";
-  static const yogaIcon = "assets/icon/yogaIcon.png";
   static const runningImage = "assets/images/runningImage.jpg";
-  static const errorAnim = "assets/animations/error_anim.json";
-
 }
