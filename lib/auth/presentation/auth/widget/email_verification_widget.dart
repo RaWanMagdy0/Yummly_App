@@ -2,9 +2,10 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummly_app/core/styles/colors/app_colors.dart';
+import 'package:yummly_app/core/styles/fonts/app_fonts.dart';
 import '../../../../core/const/provider/app_provider.dart';
 import '../../../../core/di/di.dart';
-import '../../../../core/styles/images/app_images.dart';
+import '../../../../core/styles/assets/app_images.dart';
 import '../view_model/auth_view_model.dart';
 import 'pin_code_file.dart';
 
@@ -29,28 +30,15 @@ class EmailVerificationWidget extends StatelessWidget {
                 Row(
                   children: [
                     //  Icon(Icons.arrow_back_ios_outlined),
-                    Text(
-                      "Verify Phone",
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.kBlack,
-                      ),
-                    ),
+                    Text("Verify Phone", style: AppFonts.font35BlackWeight500),
                   ],
                 ),
                 15.verticalSpace,
                 Row(
                   children: [
                     Text(
-                      "Please enter your code that send to your\n email address",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-
-                      //  style: AppFonts.font18BlackWeight500
-                    ),
+                        "Please enter your code that send to your\n email address",
+                        style: AppFonts.font15BlackWeight400),
                   ],
                 ),
                 40.verticalSpace,
@@ -74,13 +62,8 @@ class EmailVerificationWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Did not Receive Code?",
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    Text("Did not Receive Code?",
+                        style: AppFonts.font18BlackWeight500),
                     ValueListenableBuilder<bool>(
                       valueListenable: viewModel.isResendButtonEnabled,
                       builder: (context, isEnabled, child) {
@@ -93,20 +76,10 @@ class EmailVerificationWidget extends StatelessWidget {
                           child: ValueListenableBuilder<String?>(
                             valueListenable: viewModel.resendButtonText,
                             builder: (context, value, child) {
-                              return Text(
-                                value ?? " Resend",
-                                style: isEnabled
-                                    ? TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.kBaseColor,
-                                      )
-                                    : TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.kBaseColor,
-                                      ),
-                              );
+                              return Text(value ?? " Resend",
+                                  style: isEnabled
+                                      ? AppFonts.font16BaseColorWeight400
+                                      : AppFonts.font16BaseColorWeight400);
                             },
                           ),
                         );

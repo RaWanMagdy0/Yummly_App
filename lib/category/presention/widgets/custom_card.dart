@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yummly_app/core/styles/fonts/app_fonts.dart';
 
 class CustomCategoryCard extends StatelessWidget {
   final String title;
@@ -46,14 +47,7 @@ class CustomCategoryCard extends StatelessWidget {
                   "$recipes Recipes",
                   style: TextStyle(color: Colors.white70, fontSize: 12),
                 ),
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text(title, style: AppFonts.font18whiteWeightBold),
               ],
             ),
           ),

@@ -1,30 +1,26 @@
-
 import 'package:flutter/material.dart';
+import 'package:yummly_app/core/styles/assets/app_images.dart';
 
 class CustomScaffold extends StatelessWidget {
   final Widget child;
-  final String backgroundImage;
-  final double overlayOpacity;
 
-  const CustomScaffold({
-    super.key,
-    required this.child,
-    required this.backgroundImage,
-    this.overlayOpacity = 0.6,
-  });
+  const CustomScaffold({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(backgroundImage, fit: BoxFit.cover),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            AppImages.registerEmpty,
+            fit: BoxFit.cover,
           ),
-
-          Positioned.fill(child: SafeArea(child: child)),
-        ],
-      ),
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(child: child),
+        ),
+      ],
     );
   }
 }
